@@ -1,0 +1,33 @@
+# Keil uVision 编译产物
+*.o
+*.d
+*.crf
+*.dep
+*.htm
+*.lnp
+*.elf
+*.lst
+*.sct
+*.uvoptx
+*.Bak
+*.TMP
+*_Bak.*
+
+# Output 目录
+Output/
+Listing/
+
+# Keil 工程备份
+*.uvguix.*
+JLinkLog.txt
+*.scvd
+
+# Proteus 仿真缓存
+*.pdsprj.*.workspace
+*.pdsprj.*.lck
+
+# 通用
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>项目甘特图</title>
+<style>
+  body { font-family: 'Microsoft YaHei', sans-serif; padding: 30px; max-width: 1000px; margin: 0 auto; color: #333; }
+  h2 { font-size: 18px; border-bottom: 2px solid #333; padding-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+  th { background: #f5f5f5; padding: 8px 10px; border: 1px solid #ccc; text-align: left; font-weight: bold; }
+  td { padding: 8px 10px; border: 1px solid #ddd; vertical-align: top; }
+  .bar { padding: 0; }
+  .bar-fill { display: inline-block; height: 18px; border-radius: 2px; margin: 2px 0; min-width: 4px; }
+  .b1 { background: #4f46e5; }
+  .b2 { background: #0891b2; }
+  .b3 { background: #059669; }
+  .b4 { background: #d97706; }
+  .b5 { background: #dc2626; }
+  .b6 { background: #7c3aed; }
+  .note { font-size: 12px; color: #666; margin: 6px 0 20px; }
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; font-size: 12px; }
+  .legend span { display: inline-block; width: 16px; height: 12px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<h2>项目甘特图（12课时）</h2>
+
+<div class="legend">
+  <span class="b1"></span> 需求分析
+  <span class="b2"></span> FreeRTOS移植
+  <span class="b3"></span> 任务实现
+  <span class="b4"></span> 外设驱动
+  <span class="b5"></span> 测试调试
+  <span class="b6"></span> 项目文档
+</div>
+
+<table>
+<tr><th width="22%">阶段 / 任务</th><th width="3%">1</th><th width="3%">2</th><th width="3%">3</th><th width="3%">4</th><th width="3%">5</th><th width="3%">6</th><th width="3%">7</th><th width="3%">8</th><th width="3%">9</th><th width="3%">10</th><th width="3%">11</th><th width="3%">12</th><th width="15%">并行说明</th></tr>
+
+<tr>
+  <td><b>1. 需求分析与系统设计</b></td>
+  <td class="bar"><span class="bar-fill b1" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td>独立阶段</td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">1.1 功能需求分析</td>
+  <td class="bar"><span class="bar-fill b1" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">1.2 系统架构设计</td>
+  <td class="bar"><span class="bar-fill b1" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td><b>2. FreeRTOS 系统移植</b></td>
+  <td></td>
+  <td class="bar"><span class="bar-fill b2" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b2" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td>与需求分析末尾并行</td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">2.1 源码裁剪与配置</td>
+  <td></td>
+  <td class="bar"><span class="bar-fill b2" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b2" style="width:50%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">2.2 中断映射</td>
+  <td></td>
+  <td></td>
+  <td class="bar"><span class="bar-fill b2" style="width:50%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">2.3 延时适配</td>
+  <td></td>
+  <td></td>
+  <td class="bar"><span class="bar-fill b2" style="width:50%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td><b>3. 任务设计与实现</b></td>
+  <td></td>
+  <td></td>
+  <td class="bar"><span class="bar-fill b3" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b3" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b3" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b3" style="width:33%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td>
+  <td>5个任务可两两并行</td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">3.1 Task_Sensor</td>
+  <td></td><td></td><td class="bar"><span class="bar-fill b3" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td>5任务独立并行开发</td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">3.2 Task_Display</td>
+  <td></td><td></td><td></td><td class="bar"><span class="bar-fill b3" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">3.3 Task_Key</td>
+  <td></td><td></td><td></td><td class="bar"><span class="bar-fill b3" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">3.4 Task_Alarm</td>
+  <td></td><td></td><td></td><td></td><td class="bar"><span class="bar-fill b3" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">3.5 Task_Bluetooth</td>
+  <td></td><td></td><td></td><td></td><td class="bar"><span class="bar-fill b3" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">3.6 任务间通信</td>
+  <td></td><td></td><td></td><td></td><td></td><td class="bar"><span class="bar-fill b3" style="width:33%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td><b>4. 外设驱动集成</b></td>
+  <td></td><td></td>
+  <td class="bar"><span class="bar-fill b4" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b4" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b4" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td>与阶段3高度并行</td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">4.1 OLED驱动</td>
+  <td></td><td></td><td class="bar"><span class="bar-fill b4" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">4.2 DS1302 + DS18B20</td>
+  <td></td><td></td><td></td><td class="bar"><span class="bar-fill b4" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">4.3 ADXL345 + MAX30102</td>
+  <td></td><td></td><td></td><td class="bar"><span class="bar-fill b4" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">4.4 USART1适配</td>
+  <td></td><td></td><td></td><td></td><td class="bar"><span class="bar-fill b4" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td><b>5. 功能测试与调试</b></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td class="bar"><span class="bar-fill b5" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b5" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b5" style="width:50%"></span></td>
+  <td></td><td></td><td></td><td></td>
+  <td>依赖前4阶段完成</td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">5.1 编译调试</td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td class="bar"><span class="bar-fill b5" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b5" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">5.2 仿真验证</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td>
+  <td class="bar"><span class="bar-fill b5" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">5.3 回归测试</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td class="bar"><span class="bar-fill b5" style="width:50%"></span></td>
+  <td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td><b>6. 项目文档编写</b></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td>最后集中整合交付</td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">6.1 WBS + 甘特图</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td></td><td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">6.2 架构框图</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">6.3 注释规范</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td></td><td></td><td></td>
+  <td></td>
+</tr>
+<tr>
+  <td style="padding-left:24px;">6.4 文档整合排版</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td class="bar"><span class="bar-fill b6" style="width:100%"></span></td>
+  <td></td>
+</tr>
+</table>
+
+<p class="note">合计：6阶段 · 18子任务 · 12课时 · 100%完成</p>
+
+</body>
+</html>
