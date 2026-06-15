@@ -135,16 +135,6 @@ Flash: 73% (46.9KB/64KB) | SRAM: 82% (16.5KB/20KB)
 
 ---
 
-## 论文与文档
-
-- 📄 [项目文档](Doc/项目文档.md) — WBS + 甘特图 + 架构图 + 注释规范
-- 📄 [RTOS结课论文](Doc/RTOS论文.docx) — 8000字完整论文
-- 📄 [FreeRTOS任务架构图](Doc/FreeRTOS任务架构图.html)
-- 📄 [甘特图](Doc/甘特图.html)
-- 📄 [WBS分解表](Doc/WBS分解表.html)
-
----
-
 ## License
 
 MIT License · Educational Project
